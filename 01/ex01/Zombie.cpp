@@ -14,9 +14,9 @@ Zombie::~Zombie()
 	std::cout << this->_name << " is dead." << std::endl;
 }
 
-void Zombie::set_name(std::string)
+void Zombie::set_name(std::string name)
 {
-	
+	this->_name = name;
 }
 
 void Zombie::announce()

@@ -1,6 +1,6 @@
-NAME = Zombie
+NAME = Harl
 
-FILE = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+FILE = main.cpp Harl.cpp
 CC = c++ -Wall -Werror -Wextra -std=c++98
 
 OBJ = ${FILE:.cpp=.o}
