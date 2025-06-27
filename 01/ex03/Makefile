@@ -1,4 +1,4 @@
-NAME = human
+NAME = Human
 
 FILE = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 CC = c++ -Wall -Werror -Wextra -std=c++98

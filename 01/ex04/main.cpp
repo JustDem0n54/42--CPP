@@ -23,11 +23,13 @@ int main(int argc, char **argv)
 	if (argc != 4)
 		return (std::cerr << "Need <filename> <s1> <s2>" << std::endl, 1);
 	
+	std::string NewFile = std::string(argv[1]).append(".replace");
 	std::ifstream file(argv[1], std::ios::in);
-	std::ofstream newFile("newFile", std::ios::out);
-	if (!file || !newFile)
+	if (!file)
 		return (std::cerr << "Error opening file." << std::endl, 1);
-	
+	std::ofstream newFile(NewFile.c_str(), std::ios::out);
+	if (!newFile)
+		return (std::cerr << "Error opening file." << std::endl, 1);
 	std::string line;
 	while (std::getline(file, line))
 	{
