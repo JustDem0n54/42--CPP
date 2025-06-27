@@ -10,7 +10,7 @@ Harl::~Harl()
 
 int Harl::getIndex(const std::string& level)
 {
-	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	static const std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -27,19 +27,16 @@ void Harl::complain(std::string level)
 	switch (index)
 	{
 	case 1:
-		debug(); info(); warning(); error();
-		break;
+		debug();
 	case 2:
-		info(); warning(); error();
-		break;
+		info();
 	case 3:
-		warning(); error();
-		break;
+		warning();
 	case 4:
 		error();
 		break;
 	default:
-		std::cout << "Level of security incorrect" << std::endl;
+		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 		break;
 	}
 }

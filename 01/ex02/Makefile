@@ -1,4 +1,4 @@
-NAME = Zombie
+NAME = a.out
 
 FILE = main.cpp
 CC = c++ -Wall -Werror -Wextra -std=c++98
