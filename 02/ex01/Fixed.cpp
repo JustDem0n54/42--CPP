@@ -21,7 +21,7 @@ Fixed::Fixed(const int i)
 Fixed::Fixed(const float f)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_value = static_cast<int>(f * (1 << this->_fractional));
+	this->_value = roundf(f * (1 << this->_fractional));
 }
 
 Fixed& Fixed::operator=(const Fixed& other)
@@ -56,4 +56,10 @@ float Fixed::toFloat() const
 int Fixed::toInt() const
 {
 	return this->_value >> this->_fractional;
+}
+
+std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
+{
+	out << fixed.toFloat();
+	return out;
 }
