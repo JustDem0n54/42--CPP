@@ -174,3 +174,10 @@ float Fixed::max(Fixed& a,Fixed& b)
 	else 
 		return b.toFloat();
 }
+
+Fixed& Fixed::abs()
+{
+	if (this->_value < 0)
+		this->_value *= -1;
+	return *this;
+}

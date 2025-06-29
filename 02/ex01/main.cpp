@@ -1,12 +1,6 @@
 #include <iostream>
 #include "Fixed.hpp"
 
-std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
-{
-	out << fixed.toFloat();
-	return out;
-}
-
 int main( void ) 
 {
 	Fixed a;
