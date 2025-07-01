@@ -12,8 +12,8 @@ int main( void )
 	const Point point(5 , 9);
 
 	if (bsp(a, b ,c, point))
-		std::cout << "point in the triangle" << std::endl;
+		std::cout << "point : (" << point.get_x() << ", " << point.get_y() << ") is in the triangle" << std::endl;
 	else
-		std::cout << "point not in the triangle" << std::endl;
+		std::cout << "point : (" << point.get_x() << ", " << point.get_y() << ") is not in the triangle" << std::endl;
 	return 0;
 }
