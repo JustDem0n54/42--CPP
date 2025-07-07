@@ -3,10 +3,10 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : virtual public ClapTrap
+class ScavTrap : public ClapTrap
 {
-	protected:
-		int _default_energy_point;
+	private:
+
 	public:
 		ScavTrap();
 		ScavTrap(std::string name);
@@ -15,7 +15,6 @@ class ScavTrap : virtual public ClapTrap
 		~ScavTrap();
 		void attack(const std::string& target);
 		void guardGate();
-		 
 };
 
 #endif

@@ -8,7 +8,6 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 	this->_hit_points = 100;
 	this->_attack_damage = 20;
 	this->_energy_points = 50;
-	this->_default_energy_point = this->_energy_points;
 	std::cout << "ScavTrap " + this->_name << " has been created." << std::endl;
 }
 
@@ -17,7 +16,6 @@ ScavTrap::ScavTrap(ScavTrap& copy): ClapTrap(copy)
 	this->_attack_damage = copy.getAttackDamage();
 	this->_energy_points = copy.getEnergyPoints();
 	this->_hit_points = copy.getHitPoints();
-	this->_default_energy_point = this->_energy_points;
 	std::cout << "ScavTrap " + this->_name << " has been copied." << std::endl;
 }
 

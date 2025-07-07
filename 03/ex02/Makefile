@@ -1,6 +1,6 @@
 NAME = a.out
 
-FILE = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+FILE = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 CC = c++ -Wall -Werror -Wextra -std=c++98
 
 OBJ = ${FILE:.cpp=.o}

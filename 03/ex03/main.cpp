@@ -5,9 +5,11 @@
 
 int main()
 {
-	DiamondTrap mega("MegaTrap");
-
-    mega.attack("Enemy1");
-
+	DiamondTrap mega("diamond");
+	std::cout << "hit points: " << mega.getHitPoints() 
+	<< " attack : " << mega.getAttackDamage() 
+	<< " energy points : " << mega.getEnergyPoints() << std::endl;
+	mega.attack("Enemy1");
+	mega.whoAmI();
     return 0;
 }
