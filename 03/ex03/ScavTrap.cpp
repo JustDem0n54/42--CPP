@@ -1,7 +1,9 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap() : ClapTrap()
-{}
+{
+	std::cout << "ScavTrap Default construtor" << std::endl;
+}
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {

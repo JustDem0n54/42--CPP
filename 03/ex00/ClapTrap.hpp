@@ -12,6 +12,7 @@ class ClapTrap
 		int _energy_points;
 		int _attack_damage;
 	public:
+		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(ClapTrap& copy);
 		ClapTrap& operator=(ClapTrap& copy);

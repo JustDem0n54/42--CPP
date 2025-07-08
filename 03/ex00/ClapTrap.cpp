@@ -1,6 +1,11 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name): _name(name), _hit_points(10), _energy_points(10), _attack_damage(10)
+ClapTrap::ClapTrap(): _name("default"), _hit_points(0), _energy_points(0), _attack_damage(0)
+{
+	std::cout << "ClapTrap Default construtor" << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string name): _name(name), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
 	std::cout << this->_name << " has been created." << std::endl;
 }
@@ -63,18 +68,18 @@ void ClapTrap::attack(const std::string& target)
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	this->_hit_points -= amount;
-	std::cout << "ClapTrap " + _name + "lost" << amount << "HP" << std::endl;
+	std::cout << "ClapTrap " + _name + " lost " << amount << " HP" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if(this->_energy_points > 0 && this->_hit_points > 0 && this->_energy_points > static_cast<int>(amount))
+	if (this->_energy_points > 0 && this->_hit_points > 0)
 	{
 		this->_hit_points += amount;
-		this->_energy_points -= amount;
+		this->_energy_points--;
 		std::cout << "ClapTrap " + _name + " has regained " << amount << " HP" << std::endl;
 	}
-	else if (this->_energy_points == 0 || this->_energy_points < static_cast<int>(amount))
+	else if (this->_energy_points == 0)
 		std::cout << "ClapTrap " + _name + " doesn't have enought EP" << std::endl;
 	else if (this->_hit_points == 0)
 		std::cout << "ClapTrap " + _name + " doesn't have enought HP" << std::endl;

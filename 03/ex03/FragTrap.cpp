@@ -1,7 +1,9 @@
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap(): ClapTrap()
-{}
+{
+	std::cout << "FragTrap Default construtor" << std::endl;
+}
 
 FragTrap::FragTrap(std::string name): ClapTrap(name)
 {

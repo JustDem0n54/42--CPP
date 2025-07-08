@@ -1,7 +1,9 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(): _name(0), _hit_points(0), _energy_points(0), _attack_damage(0)
-{}
+{
+	std::cout << "ClapTrap Default construtor" << std::endl;
+}
 
 ClapTrap::ClapTrap(std::string name): _name(name), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
