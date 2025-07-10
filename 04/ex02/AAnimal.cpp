@@ -1,39 +1,39 @@
 #include "AAnimal.hpp"
 
-Animal::Animal(): _type("default")
+AAnimal::AAnimal(): _type("default")
 {
 	std::cout << "Default Animal constructor." << std::endl;
 }
 
-Animal::Animal(std::string type): _type(type)
+AAnimal::AAnimal(std::string type): _type(type)
 {
 	std::cout << "Animal constructor." << std::endl;
 }
 
-Animal::Animal(Animal& copy)
+AAnimal::AAnimal(AAnimal& copy)
 {
 	*this = copy;
 	std::cout << "Copy Animal constructor." << std::endl;
 }
 
-Animal& Animal::operator=(Animal& copy)
+AAnimal& AAnimal::operator=(AAnimal& copy)
 {
 	if (this != &copy)
 		this->_type = copy._type;
 	return *this;
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
 	std::cout << "Animal destructor." << std::endl;
 }
 
-void Animal::makeSound() const
+void AAnimal::makeSound() const
 {
 	std::cout << "... no sound" << std::endl;
 }
 
-std::string Animal::getType() const
+std::string AAnimal::getType() const
 {
 	return this->_type;
 }

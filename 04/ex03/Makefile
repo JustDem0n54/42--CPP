@@ -1,6 +1,6 @@
 NAME = a.out
 
-FILE = main.cpp 
+FILE = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 CC = c++ -Wall -Werror -Wextra -std=c++98
 
 OBJ = ${FILE:.cpp=.o}
@@ -8,15 +8,15 @@ OBJ = ${FILE:.cpp=.o}
 all: ${NAME}
 
 %.o: %.cpp
-	@${CC} -c $< -o $@
+	${CC} -c $< -o $@
 
 ${NAME}:	${OBJ}
-	@${CC} ${OBJ} -o ${NAME}
+	${CC} ${OBJ} -o ${NAME}
 
 clean: 
-	@rm -f *.o
+	rm -f *.o
 
 fclean: clean
-	@rm -f ${NAME}
+	rm -f ${NAME}
 
 re: fclean all

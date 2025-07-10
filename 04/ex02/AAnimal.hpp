@@ -1,19 +1,19 @@
-#ifndef _ANIMAL_
-	#define _ANIMAL_
+#ifndef _AANIMAL_
+	#define _AANIMAL_
 
 #include <iostream>
 #include <string>
 
-class Animal
+class AAnimal
 {
 	protected:
 		std::string _type;
 	public:
-		Animal();
-		Animal(std::string type);
-		Animal(Animal& copy);
-		Animal& operator=(Animal& copy);
-		virtual ~Animal();
+		AAnimal();
+		AAnimal(std::string type);
+		AAnimal(AAnimal& copy);
+		AAnimal& operator=(AAnimal& copy);
+		virtual ~AAnimal();
 		virtual void makeSound() const = 0;
 		std::string getType() const;
 };
