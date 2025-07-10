@@ -12,6 +12,8 @@ int main()
     test.attack("mechant");
     test.attack("mechant");
 	test.takeDamage(5);
+	test.takeDamage(5);
+	test.takeDamage(5);
 	std::cout << test.getHitPoints() << std::endl;
     test.beRepaired(20);
 	std::cout << test.getHitPoints() << std::endl;

@@ -1,6 +1,6 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(): FragTrap(), ScavTrap()
+DiamondTrap::DiamondTrap(): ClapTrap()
 {
 	std::cout << "DiamondTrap Default construtor" << std::endl;
 }
@@ -38,13 +38,8 @@ DiamondTrap::~DiamondTrap()
 	std::cout << "DianondTrap " + this->_name << " has been destroyed." << std::endl;
 }
 
-void DiamondTrap::attack(const std::string& target)
-{
-	ScavTrap::attack(target);
-}
-
 void DiamondTrap::whoAmI()
 {
 	std::cout << "His name is " + this->_name 
-	+ ". His Clapname is " + this->getName() << std::endl;
+	+ ". His Clapname is " + ClapTrap::_name << std::endl;
 }

@@ -11,5 +11,7 @@ int main()
 	<< " energy points : " << mega.getEnergyPoints() << std::endl;
 	mega.attack("Enemy1");
 	mega.whoAmI();
+	mega.highFivesGuys();
+	mega.guardGate();
     return 0;
 }
