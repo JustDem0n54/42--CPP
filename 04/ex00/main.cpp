@@ -24,5 +24,7 @@ int main()
 	delete meta;
 	delete j;
 	delete i;
+	delete Wrongmeta;
+	delete Wrongi;
 	return 0;
 }

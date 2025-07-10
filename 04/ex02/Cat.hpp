@@ -2,7 +2,7 @@
 	#define _CAT_
 
 #include "Brain.hpp"
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
 class Cat : public Animal
 {

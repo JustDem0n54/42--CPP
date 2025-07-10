@@ -1,6 +1,6 @@
 NAME = a.out
 
-FILE = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+FILE = main.cpp 
 CC = c++ -Wall -Werror -Wextra -std=c++98
 
 OBJ = ${FILE:.cpp=.o}
