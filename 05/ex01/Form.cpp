@@ -1,9 +1,9 @@
 #include "Form.hpp"
 
-Form::Form(): _name("default"), _grade_to_sign(0), _grade_to_execute(0), _status(1)
+Form::Form(): _name("default"), _grade_to_sign(150), _grade_to_execute(150), _status(false)
 {}
 
-Form::Form(std::string name, int to_sign, int to_execute): _name(name), _grade_to_sign(to_sign), _grade_to_execute(to_execute), _status(1)
+Form::Form(std::string name, int to_sign, int to_execute): _name(name), _grade_to_sign(to_sign), _grade_to_execute(to_execute), _status(false)
 {
 	if (to_sign > 150 || to_execute > 150)
 		throw Form::GradeTooLowException();
@@ -11,13 +11,13 @@ Form::Form(std::string name, int to_sign, int to_execute): _name(name), _grade_t
 		throw Form::GradeTooHighException();
 }
 
-Form::Form(Form& copy): _name(copy._name), _grade_to_sign(copy._grade_to_sign), _grade_to_execute(copy._grade_to_execute), _status(copy._status)
+Form::Form(const Form& copy): _name(copy._name), _grade_to_sign(copy._grade_to_sign), _grade_to_execute(copy._grade_to_execute), _status(copy._status)
 {}
 
 Form::~Form()
 {}
 
-Form& Form::operator=(Form& copy)
+Form& Form::operator=(const Form& copy)
 {
 	if (this != &copy)
 	{
@@ -50,7 +50,7 @@ int Form::getGradeToExecute() const
 
 std::ostream& operator<<(std::ostream& out, const Form& Form)
 {
-	if (Form.getStatus() == 0)
+	if (Form.getStatus())
 	{
 		out << "Form : " + Form.getName() + " - Grade to sign: " << Form.getGradeToSign()
 		<< " - Grade to execute: " << Form.getGradeToSign() << " - Signed: yes";
