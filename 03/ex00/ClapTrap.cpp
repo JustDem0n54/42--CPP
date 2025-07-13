@@ -69,7 +69,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->_hit_points <= 0)
 	{
-		std::cout << "ClapTrap " + this->_name + " is already dead.";
+		std::cout << "ClapTrap " + this->_name + " is already dead." << std::endl;
 		return ;
 	}
 	this->_hit_points -= amount;

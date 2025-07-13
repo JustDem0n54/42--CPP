@@ -14,3 +14,4 @@ int main()
 	Scav.guardGate();
 	std::cout << "==========================" << std::endl;
 }
+
