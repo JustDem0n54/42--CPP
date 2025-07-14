@@ -46,9 +46,12 @@ int main()
 
 	Intern someRandomIntern;
 	AForm* rrf;
-	rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
-	Mich.signForm(*rrf);
-	Mich.executeForm(*rrf);
+	rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+	if (rrf != 0)
+	{
+		Mich.signForm(*rrf);
+		Mich.executeForm(*rrf);
+	}
 	std::cout << "======================================" << std::endl;
 
 	if (rrf)
