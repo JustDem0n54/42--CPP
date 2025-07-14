@@ -9,12 +9,8 @@ class AMateria;
 
 class ICharacter
 {
-	private:
-	
 	public:
-		
 		ICharacter() {};
-
 		virtual ~ICharacter() {};
 
 		virtual std::string const & getName() const = 0;

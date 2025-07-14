@@ -7,7 +7,8 @@
 int main()
 {
 	int n = 3;
-	Animal *tab[n * 2];
+	AAnimal *tab[n * 2];
+	// AAnimal test("Cat");
 
 	for (int i = 0; i < n; i++)
 	{

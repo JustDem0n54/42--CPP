@@ -11,11 +11,7 @@ MateriaSource::MateriaSource(): IMateriaSource()
 
 MateriaSource::MateriaSource(MateriaSource& copy)
 {
-	for (int i = 0; i < 4; i++)
-	{
-		delete _materia[i];
-		this->_materia[i] = copy._materia[i];
-	}
+	*this = copy;
 }
 
 MateriaSource& MateriaSource::operator=(MateriaSource& copy)
@@ -24,8 +20,12 @@ MateriaSource& MateriaSource::operator=(MateriaSource& copy)
 	{
 		for (int i = 0; i < 4; i++)
 		{
-			delete this->_materia[i];
-			this->_materia[i] = copy._materia[i]->clone();
+			if (this->_materia[i])
+				delete this->_materia[i];
+			if (copy._materia[i])
+				this->_materia[i] = copy._materia[i]->clone();
+			else
+				this->_materia[i] = 0;
 		}
 	}
 	return *this;

@@ -20,11 +20,7 @@ Character::Character(std::string name): ICharacter()
 
 Character::Character(Character& copy): _name(copy.getName())
 {
-	for (int i = 0; i < 4; i++)
-	{
-		delete _inventory[i];
-		this->_inventory[i] = copy._inventory[i];
-	}
+	*this = copy;
 }
 
 Character& Character::operator=(Character& copy)
@@ -34,8 +30,12 @@ Character& Character::operator=(Character& copy)
 		this->_name = copy.getName();
 		for (int i = 0; i < 4; i++)
 		{
-			delete this->_inventory[i];
-			this->_inventory[i] = copy._inventory[i]->clone();
+			if (this->_inventory[i])
+				delete this->_inventory[i];
+			if (copy._inventory[i])
+				this->_inventory[i] = copy._inventory[i]->clone();
+			else
+				this->_inventory[i] = 0;
 		}
 	}
 	return *this;
@@ -63,7 +63,10 @@ void Character::equip(AMateria* m)
 	while (this->_inventory[i] != 0)
 		i++;
 	if (i >= 4)
+	{
 		std::cout << "Invetory of Character " + this->_name + " is full." << std::endl;
+		delete m;
+	}
 	else
 		this->_inventory[i] = m;
 }
