@@ -1,6 +1,6 @@
-NAME = convert
+NAME = a.out
 
-FILE = main.cpp ScalarConverter.cpp
+FILE = main.cpp Serializer.cpp
 CC = c++ -Wall -Werror -Wextra -std=c++98
 
 OBJ = ${FILE:.cpp=.o}
