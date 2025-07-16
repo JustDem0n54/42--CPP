@@ -15,6 +15,9 @@ class Intern
 		Intern& operator=(Intern& copy);
 
 		AForm*  makeForm(std::string name, std::string target);
+		AForm* 	makeShrubbery(std::string target);
+		AForm* 	makePresident(std::string target);
+		AForm* 	makeRobotomy(std::string target);
 };
 
 #endif
