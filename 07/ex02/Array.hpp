@@ -2,6 +2,8 @@
 	#define ARRAY_HPP
 
 #include <cstddef>
+#include <exception>
+#include <string>
 
 template < typename T >
 class Array
@@ -16,7 +18,16 @@ class Array
 		Array(const Array& copy);
 		Array& operator=(const Array& copy);
 		~Array();
+		T& operator[](size_t index);
+		const T& operator[](size_t index) const;
+		size_t size() const;
 
+
+	class IndexOutOfBounds : public std::exception
+	{
+		public:
+			const char* what() const throw();
+	};
 };
 
 #include "Array.Tpp"
