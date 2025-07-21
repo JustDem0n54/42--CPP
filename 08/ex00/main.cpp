@@ -1,5 +1,4 @@
 #include "easyfind.hpp"
-
 #include <vector>
 #include <list>
 
