@@ -28,6 +28,13 @@ void Span::addNumber(int nb)
 	_tab.push_back(nb);
 }
 
+void Span::addNumbers(int *nb, size_t size)
+{
+	if (N == 0 || _tab.size() + size - 1 >= N) 
+		throw std::runtime_error("Can't add other numbers.");
+	_tab.insert(_tab.end(), nb, nb + size);
+}
+
 int Span::shortestSpan() const
 {
 	if (this->_tab.size() < 2 || N == 0)
@@ -54,4 +61,9 @@ int Span::longestSpan() const
 	std::sort(sorted.begin(), sorted.end());
 	int maxSpan = sorted[sorted.size() - 1] - sorted[0];
 	return maxSpan;
+}
+
+std::vector<int> Span::getTab() const
+{
+	return _tab;
 }

@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <stdexcept>
 #include <iterator>
+#include <cstddef>
 
 class Span
 {
@@ -19,8 +20,11 @@ class Span
 		Span& operator=(const Span& copy);
 
 		void addNumber(int nb);
+		void addNumbers(int *nb, size_t size);
 		int shortestSpan() const;
 		int longestSpan() const;
+
+		std::vector<int> getTab() const;
 };
 
 #endif

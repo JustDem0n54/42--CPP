@@ -7,11 +7,16 @@ int main()
 {
 	std::srand(time(0));
 	Span sp = Span(10000);
-	
+
+	int arr[10000];
 	for (int i = 0; i < 10000; i++)
-	{
-		sp.addNumber(rand());
-	}
+		arr[i] = rand();
+
+	sp.addNumbers(arr, 10000);
+
+	std::vector<int> tab = sp.getTab();
+	std::cout << tab[0] << " " << tab[1] << " " << tab[2] << std::endl;
+	std::cout << tab[tab.size() - 3] << " " << tab[tab.size() - 2] << " " << tab[tab.size() - 1] << std::endl;
 
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
