@@ -1,17 +1,5 @@
 #include "ScalarConverter.hpp"
 
-bool check_str(std::string str)
-{
-	for (int i = 0; i < static_cast<int>(str.length() - 1); i++)
-	{
-		if (i == 0 && str[i] == '-')
-			i++;
-		if ((!std::isdigit(str[i]) && str[i] != '.' && str[i] != 'f') || (str[i] == 'f' && i < static_cast<int>(str.length() - 1)))
-			return (false);
-	}
-	return (true);
-}
-
 bool check_inf(std::string str, int type)
 {
 	if (type == FLOAT && (str == "-inff" || str == "+inff" || str == "nanf"))
@@ -119,15 +107,38 @@ void convert_double(std::string str)
 	std::cout << "double: " << d << std::endl;
 }
 
+bool check_str(std::string str)
+{
+	for (int i = 0; i < static_cast<int>(str.length()); i++)
+	{
+		if (i == 0 && str[i] == '-')
+			i++;
+		if (str[i] == 'f' && i != static_cast<int>(str.length()) && str[i - 2] != '.')
+			return false;
+		if (!isdigit(str[i]) && str[i] != 'f' && str[i] != '.')
+			return false;
+		if (str[i] == '.')
+		{
+			if (i == static_cast<int>(str.length()) - 2 && isdigit(str[i + 1]))
+				return true;
+			if (i == static_cast<int>(str.length()) - 3 && isdigit(str[i + 1]) && str[i + 2] == 'f')
+				return true;
+			else
+				return false;
+		}
+	}
+	return (true);
+}
+
 int detect_type(std::string str)
 {
 	if (str.empty())
 		return (ERROR);
 	else if (str.length() == 1 && !std::isdigit(static_cast<char>(str[0])))
 		return (CHAR);
-	else if ((str.find('.') != std::string::npos && str.find('f', str.length() - 1) == std::string::npos && check_str(str) == true) || check_inf(str, DOUBLE) == true)
+	else if ((str.find('.') != std::string::npos && str[str.length() - 1] == '0' && check_str(str) == true) || check_inf(str, DOUBLE) == true)
 		return (DOUBLE);
-	else if ((str.find('.') != std::string::npos && str.find('f', str.length() - 1) != std::string::npos && check_str(str) == true) || check_inf(str, FLOAT) == true)
+	else if ((str.find('.') != std::string::npos && str[str.length() - 1] == 'f' && check_str(str) == true) || check_inf(str, FLOAT) == true)
 		return (FLOAT);
 	else if (check_str(str) == true)
 		return (INT);

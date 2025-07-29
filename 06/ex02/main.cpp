@@ -56,12 +56,12 @@ int main()
 	Base* test2 = generate();
 	Base* test3 = generate();
 	
-	identify(test);
+	identify(*test);
 	identify(test);
 	std::cout << "=====================================" << std::endl;
-	identify(test2);
+	identify(*test2);
 	identify(test2);
 	std::cout << "=====================================" << std::endl;
-	identify(test3);
+	identify(*test3);
 	identify(test3);
 }
