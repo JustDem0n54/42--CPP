@@ -1,6 +1,6 @@
 NAME = btc
 
-FILE = main.cpp 
+FILE = main.cpp BitcoinExchange.cpp
 CC = c++ -Wall -Werror -Wextra -std=c++98
 
 OBJ = ${FILE:.cpp=.o}
