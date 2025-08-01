@@ -97,12 +97,12 @@ std::string BitcoinExchange::FindValidDate(std::string date)
 
 float BitcoinExchange::FindValidValue(std::string input)
 {
-	for (size_t i = 1; i < input.length() - 1; i++)
+	for (size_t i = 0; i < input.length(); i++)
 	{
-		if (input[i] == '-')
+		if (i == 0 && input[i] == '-')
 			i++;
 		if (isdigit(input[i]) == 0 && input[i] != '.')
-			return std::cout << "Error: bad value input -> " + input << std::endl, -1.0f;
+			return std::cout << "Error: bad input -> " + input << std::endl, -1.0f;
 	}
 	float value = atof(input.c_str());
 	if (value > 1000)
