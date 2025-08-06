@@ -4,6 +4,9 @@
 #include <stack>
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <exception>
+#include <stdexcept>
 
 class RPN
 {
@@ -15,7 +18,10 @@ class RPN
 		~RPN();
 		RPN& operator=(const RPN& copy);
 
-		bool ParsingEntry(std::string str) const;
+		void ResolveRPN(std::string str);
+		void ParsingEntry(std::string str) const;
+		bool Operation(char c);
+		void Stock(int nb);
 };
 
 #endif
