@@ -9,10 +9,10 @@ void iter(T* address, unsigned int lenght, void (*f)(const T&))
 }
 
 template <typename T>
-void iter(T* adress, unsigned int lenght, void (*f)(T&))
+void iter(T* address, unsigned int lenght, void (*f)(T&))
 {
 	for (unsigned int i = 0; i < lenght; i++)
-		f(adress[i]);
+		f(address[i]);
 }
 
 #endif

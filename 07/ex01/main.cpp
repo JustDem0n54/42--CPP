@@ -16,13 +16,13 @@ int main() {
     char arr[] = {"abcd"};
 
     std::cout << "Avant : ";
-    iter(arr, 4, printChar);  // Fonction en const ref
+    iter(arr, 4, printChar);  
     std::cout << '\n';
 
-    iter(arr, 4, toUpperChar);  // Fonction en ref modifiable
+    iter(arr, 4, toUpperChar); 
 
     std::cout << "Après  : ";
-    iter(arr, 4, printChar);  // Toujours valide
+    iter(arr, 4, printChar);  
     std::cout << '\n';
 
     return 0;
