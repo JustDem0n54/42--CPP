@@ -31,7 +31,7 @@ void Span::addNumber(int nb)
 void Span::addNumbers(int *nb, size_t size)
 {
 	if (N == 0 || _tab.size() + size - 1 >= N) 
-		throw std::runtime_error("Can't add other numbers.");
+		throw std::runtime_error("Can't add this size of numbers");
 	_tab.insert(_tab.end(), nb, nb + size);
 }
 
