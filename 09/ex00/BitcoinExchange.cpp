@@ -45,11 +45,13 @@ bool BitcoinExchange::IsValidDate(std::string date) const
 	return true;
 }
 
-void BitcoinExchange::StockDataInMap(std::string file)
+int BitcoinExchange::StockDataInMap(std::string file)
 {
 	std::string line;
 	std::ifstream btc(file.c_str());
 	std::getline(btc, line);
+	if (line.compare("date,exchange_rate") != 0)
+		return std::cerr << "Error: bad input => " << line << std::endl, 1;
 	while (std::getline(btc, line))
 	{
 		size_t sep = line.find(',');
@@ -57,7 +59,7 @@ void BitcoinExchange::StockDataInMap(std::string file)
 		{
 			std::string date = line.substr(0, sep);
 			if (BitcoinExchange::IsValidDate(date) == false)
-				return ;
+				return std::cerr << "Invalid caracters in data file" << std::endl ,1;
 			std::string value_str = line.substr(sep + 1);
 
 			float value = static_cast<float>(atof(value_str.c_str()));
@@ -66,9 +68,10 @@ void BitcoinExchange::StockDataInMap(std::string file)
 		else
 		{
 			std::cerr << "Invalid caracters in data file" << std::endl;
-			return ;
+			return 1;
 		}	
 	}
+	return 0;
 }
 
 std::string BitcoinExchange::FindValidDate(std::string date)

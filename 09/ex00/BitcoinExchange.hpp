@@ -20,7 +20,7 @@ class BitcoinExchange
 		~BitcoinExchange();
 		BitcoinExchange& operator=(const BitcoinExchange& copy);
 
-		void StockDataInMap(std::string file);
+		int StockDataInMap(std::string file);
 		bool IsValidDate(std::string date) const;
 		std::string FindValidDate(std::string date);
 		float FindValidValue(std::string input);

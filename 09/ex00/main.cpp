@@ -9,7 +9,8 @@ int main(int argc, char **argv)
 	if (!in)
 		return (std::cerr << "Error: could not open file." << std::endl, 1);
 	BitcoinExchange data;
-	data.StockDataInMap("data.csv");
+	if (data.StockDataInMap("data.csv") == 1)
+		return 1;
 	std::string input;
 	std::getline(in, input);
 	if (input.compare("date | value") != 0)
